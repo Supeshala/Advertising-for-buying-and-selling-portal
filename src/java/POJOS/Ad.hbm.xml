@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2018 5:52:26 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Ad" table="ad" catalog="sellit" optimistic-lock="version">
+        <id name="idad" type="java.lang.Integer">
+            <column name="idad" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="POJOS.User" fetch="select">
+            <column name="user_iduser" not-null="true" />
+        </many-to-one>
+        <property name="category" type="string">
+            <column name="category" length="45" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="45" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="16777215" />
+        </property>
+        <property name="price" type="java.lang.Double">
+            <column name="price" precision="22" scale="0" />
+        </property>
+        <property name="location" type="string">
+            <column name="location" length="45" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" />
+        </property>
+        <property name="brand" type="string">
+            <column name="brand" length="45" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" length="16777215" />
+        </property>
+        <property name="image1" type="string">
+            <column name="image1" length="16777215" />
+        </property>
+        <property name="image2" type="string">
+            <column name="image2" length="16777215" />
+        </property>
+        <property name="image3" type="string">
+            <column name="image3" length="16777215" />
+        </property>
+    </class>
+</hibernate-mapping>

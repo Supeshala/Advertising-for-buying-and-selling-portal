@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2018 5:52:26 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Faq" table="faq" catalog="sellit" optimistic-lock="version">
+        <id name="idfaq" type="java.lang.Integer">
+            <column name="idfaq" />
+            <generator class="identity" />
+        </id>
+        <property name="question" type="string">
+            <column name="question" length="16777215" />
+        </property>
+        <property name="answer" type="string">
+            <column name="answer" length="16777215" />
+        </property>
+    </class>
+</hibernate-mapping>

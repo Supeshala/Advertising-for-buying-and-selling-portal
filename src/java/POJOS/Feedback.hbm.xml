@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 27, 2018 5:52:26 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Feedback" table="feedback" catalog="sellit" optimistic-lock="version">
+        <id name="idfeedback" type="java.lang.Integer">
+            <column name="idfeedback" />
+            <generator class="identity" />
+        </id>
+        <property name="fname" type="string">
+            <column name="fName" length="45" />
+        </property>
+        <property name="lname" type="string">
+            <column name="lName" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="45" />
+        </property>
+        <property name="feedback" type="string">
+            <column name="feedback" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

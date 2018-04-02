@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sellit?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">Sv@19931120</property>
+    <mapping resource="POJOS/Faq.hbm.xml"/>
+    <mapping resource="POJOS/Ad.hbm.xml"/>
+    <mapping resource="POJOS/User.hbm.xml"/>
+    <mapping resource="POJOS/Contact.hbm.xml"/>
+    <mapping resource="POJOS/Feedback.hbm.xml"/>
+    <mapping resource="POJOS/Login.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
