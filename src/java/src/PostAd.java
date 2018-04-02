@@ -42,7 +42,6 @@ public class PostAd extends HttpServlet {
         String brand = "";
         String location = "";
         String path = "";
-        String path1="";
         
         try {
             FileItemFactory factory = new org.apache.commons.fileupload.disk.DiskFileItemFactory();
@@ -99,7 +98,6 @@ public class PostAd extends HttpServlet {
                 ad.setDate(new Date());
                 ad.setBrand(brand);
                 ad.setImage(path);
-                ad.setImage1(path1);
                 ad.setUser(user);
                 
                 ses.save(ad);

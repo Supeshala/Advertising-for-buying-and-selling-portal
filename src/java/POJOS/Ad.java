@@ -1,5 +1,5 @@
 package POJOS;
-// Generated Mar 27, 2018 5:52:23 PM by Hibernate Tools 4.3.1
+// Generated Apr 2, 2018 10:11:49 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,9 +20,6 @@ public class Ad  implements java.io.Serializable {
      private Date date;
      private String brand;
      private String image;
-     private String image1;
-     private String image2;
-     private String image3;
 
     public Ad() {
     }
@@ -31,7 +28,7 @@ public class Ad  implements java.io.Serializable {
     public Ad(User user) {
         this.user = user;
     }
-    public Ad(User user, String category, String title, String description, Double price, String location, Date date, String brand, String image, String image1, String image2, String image3) {
+    public Ad(User user, String category, String title, String description, Double price, String location, Date date, String brand, String image) {
        this.user = user;
        this.category = category;
        this.title = title;
@@ -41,9 +38,6 @@ public class Ad  implements java.io.Serializable {
        this.date = date;
        this.brand = brand;
        this.image = image;
-       this.image1 = image1;
-       this.image2 = image2;
-       this.image3 = image3;
     }
    
     public Integer getIdad() {
@@ -115,27 +109,6 @@ public class Ad  implements java.io.Serializable {
     
     public void setImage(String image) {
         this.image = image;
-    }
-    public String getImage1() {
-        return this.image1;
-    }
-    
-    public void setImage1(String image1) {
-        this.image1 = image1;
-    }
-    public String getImage2() {
-        return this.image2;
-    }
-    
-    public void setImage2(String image2) {
-        this.image2 = image2;
-    }
-    public String getImage3() {
-        return this.image3;
-    }
-    
-    public void setImage3(String image3) {
-        this.image3 = image3;
     }
 
 
