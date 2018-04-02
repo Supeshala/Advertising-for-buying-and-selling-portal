@@ -314,7 +314,7 @@
         <!-- breadcrumbs -->
         <div class="w3layouts-breadcrumbs text-center">
             <div class="container">
-                <span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Contacts</span></span>
+                <span class="agile-breadcrumbs"><a href="index.jsp"><i class="fa fa-home home_1"></i></a> / <span>Contacts</span></span>
             </div>
         </div>
         <!-- //breadcrumbs -->
@@ -475,7 +475,7 @@
                             <ul>
                                 <li><a href="howitworks.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
                                 <li><a href="sitemap.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
-                                <li><a href="faq.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
+                                <li><a href="help.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
                                 <li><a href="feedback.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
                                 <li><a href="contact.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
                             </ul>

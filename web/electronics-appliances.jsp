@@ -8,7 +8,6 @@
 <%@page import="org.hibernate.FetchMode"%>
 <%@ page import="org.hibernate.criterion.Restrictions" %>
 <%@ page import="POJOS.Ad" %>
-<%@page import="POJOS.Image" %>
 <%@ page import="org.hibernate.Session" %>
 <%@ page import="org.hibernate.Criteria" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*"%>
@@ -47,6 +46,12 @@
         <!-- js -->
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <!-- js -->
+        <script type="text/javascript" src="js/jquery.timeago.js" ></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+                $("time.timeago").timeago();
+            });
+        </script>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/bootstrap-select.js"></script>
@@ -759,17 +764,17 @@
                                                 <ul class="list">
                                                     <a href="single.jsp">
                                                         <li>
-                                                            <img src="images/e1.jpg" title="" alt="" />
+                                                            <img src="<%=a.getImage()%>" title="" alt="" />
                                                             <section class="list-left">
                                                                 <h5 class="title"><%=a.getTitle()%></h5>
                                                                 <span class="adprice">Rs.<%=a.getPrice()%></span>
                                                                 <p class="catpath"> <%=a.getCategory()%> » <%=a.getBrand()%> </p>
                                                             </section>
-                                                            <section class="list-right">
-                                                                <%Date d = new Date();%>
-                                                                <span class="date"><%=a.getDate()%></span>
+                                                            <section class="list-group">
+                                                                <time class="timeago" datetime="<%=a.getDate()%>" > new Date() </time> 
+                                                                <br><br>
                                                                 <span class="cityname"><%=a.getLocation()%></span>
-                                                            </section>
+                                                            </section><br><br>
                                                             <div class="clearfix"></div>
                                                         </li> 
                                                     </a>
@@ -813,7 +818,7 @@
                             <ul>
                                 <li><a href="howitworks.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
                                 <li><a href="sitemap.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
-                                <li><a href="faq.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
+                                <li><a href="help.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
                                 <li><a href="feedback.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
                                 <li><a href="contact.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
                             </ul>
@@ -838,7 +843,7 @@
                                 <div class="clearfix"> </div>
                                 <ul class="location">
                                     <li><span class="glyphicon glyphicon-envelope"></span></li>
-                                    <li><a href="mailto:binukagamage@gmail.com">binukagamage@gmail.com</a></li>
+                                    <li><a href="mailto:igsbinukagamage@gmail.com">igsbinukagamage@gmail.com</a></li>
                                 </ul>						
                             </address>
                         </div>

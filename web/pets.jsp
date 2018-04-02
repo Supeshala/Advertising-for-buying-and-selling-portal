@@ -44,6 +44,12 @@
         <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
         <!--//fonts-->	
         <!-- js -->
+        <script type="text/javascript" src="js/jquery.timeago.js" ></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+                $("time.timeago").timeago();
+            });
+        </script>
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <!-- js -->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -764,11 +770,11 @@
                                                                 <span class="adprice">Rs.<%=a.getPrice()%></span>
                                                                 <p class="catpath"> <%=a.getCategory()%> » <%=a.getBrand()%> </p>
                                                             </section>
-                                                            <section class="list-right">
-                                                                <%Date d = new Date();%>
-                                                                <span class="date"><%=a.getDate()%></span>
+                                                            <section class="list-group">
+                                                                <time class="timeago" datetime="<%=a.getDate()%>" > new Date() </time> 
+                                                                <br><br>
                                                                 <span class="cityname"><%=a.getLocation()%></span>
-                                                            </section>
+                                                            </section> <br><br>
                                                             <div class="clearfix"></div>
                                                         </li> 
                                                     </a>
@@ -812,7 +818,7 @@
                             <ul>
                                 <li><a href="howitworks.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
                                 <li><a href="sitemap.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
-                                <li><a href="faq.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
+                                <li><a href="help.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
                                 <li><a href="feedback.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
                                 <li><a href="contact.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
                             </ul>
@@ -837,7 +843,7 @@
                                 <div class="clearfix"> </div>
                                 <ul class="location">
                                     <li><span class="glyphicon glyphicon-envelope"></span></li>
-                                    <li><a href="mailto:binukagamage@gmail.com">binukagamage@gmail.com</a></li>
+                                    <li><a href="mailto:igsbinukagamage@gmail.com">igsbinukagamage@gmail.com</a></li>
                                 </ul>						
                             </address>
                         </div>

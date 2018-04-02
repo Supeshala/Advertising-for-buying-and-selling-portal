@@ -1,15 +1,28 @@
 <%-- 
-    Document   : feedback
-    Created on : Mar 28, 2018, 10:25:17 PM
+    Document   : faq
+    Created on : Apr 2, 2018, 11:43:57 AM
     Author     : HP
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="org.hibernate.criterion.Order"%>
+<%@page import="POJOS.Faq"%>
+<%@page import="org.hibernate.Criteria"%>
+<%@page import="org.hibernate.Session"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    response.setHeader("Cache-Control", "no-store");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Expires", "0");
+
+    Session ses = DB.Connection.getSessionFactory().openSession();
+
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Feedback :: Sell it </title>
+        <title>Faq :: Sell it </title>
         <link rel="stylesheet" href="css/bootstrap.min.css"><!-- bootstrap-CSS -->
         <link rel="stylesheet" href="css/bootstrap-select.css"><!-- bootstrap-select-CSS -->
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all" /><!-- style.css -->
@@ -311,36 +324,46 @@
             </div>
         </header>
         <!-- //header -->
-	<!-- breadcrumbs -->
-	<div class="w3layouts-breadcrumbs text-center">
-		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.jsp"><i class="fa fa-home home_1"></i></a> / <span>Feedback</span></span>
-		</div>
-	</div>
-	<!-- //breadcrumbs -->
-	<!-- Feedback -->
-	<div class="feedback main-grid-border">
-		<div class="container">
-			<h2 class="w3-head">Feedback</h2>
-			<div class="feed-back">
-				<h3>Tell us what you think of us</h3>
-				<p></p>
-				<div class="feed-back-form">
-                                    <form action="GetFeedback" method="post" onsubmit="swal('Thank You!','Thanks for your feedback, We appreciate you.')">
-					<span>User Details</span>
-                                        <input type="text" value="First Name" name="firstname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}">
-                                        <input type="text" value="Last Name" name="lastname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}">
-                                        <input type="text" value="Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-                                        <input type="text" value="Phone No" name="phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Phone No';}">
-							<span>Is there anything you would like to tell us?</span>
-                                                        <textarea name="feedback" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Feedback...</textarea>
-							<input type="submit" value="submit">
-						</form>
-				</div>
-			</div>
-		</div>	
-	</div>
-	<!-- // Feedback -->
+        <!-- breadcrumbs -->
+        <div class="w3layouts-breadcrumbs text-center">
+            <div class="container">
+                <span class="agile-breadcrumbs"><a href="index.jsp"><i class="fa fa-home home_1"></i></a> / <span>Faq & Help</span></span>
+            </div>
+        </div>
+        <!-- //breadcrumbs -->
+        <!-- Faq -->
+        <div class="faq main-grid-border">
+            <div class="container">
+                <div class="wthree-help">
+                    <h3>How Can We help you?</h3>
+                    <form action="GetFaq" method="post"> 
+                        <textarea placeholder="Your Query" name="que" required=""></textarea>
+                        <input type="submit" value="submit">
+                    </form>
+                    <h5>OR</h5>
+                    <a href="contact.jsp">Contact Us</a>
+                </div>
+                <h2 class="w3-head">Frequently asked Questions</h2>
+                <dl class="faq-list">
+                    <% Criteria cr = ses.createCriteria(Faq.class).addOrder(Order.asc("idfaq")); %>
+                    <% List<Faq> faqList = cr.list(); %>
+                    <%
+                        for (Faq f : faqList) {
+                    %> 
+                    <dt class="faq-list_h">
+                    <h4 class="marker">Q <%=f.getIdfaq()%>)</h4>&nbsp;
+                    <h5 class="marker_head"><%=f.getQuestion()%></h5>
+                    </dt>
+                    <dd>
+                        <h4 class="marker1">A.</h4>
+                        <p class="m_13"><%=f.getAnswer()%></p>
+                    </dd>
+                    <% }%>  
+                </dl>
+
+            </div>	
+        </div>
+        <!-- // Faq -->
         <footer>
             <div class="w3-agileits-footer-top">
                 <div class="container">
@@ -409,38 +432,39 @@
             </div>
         </footer>
         <!--footer section end-->
-		<!-- Navigation-JavaScript -->
-			<script src="js/classie.js"></script>
-			<script src="js/main.js"></script>
-		<!-- //Navigation-JavaScript -->
-		<!-- here stars scrolling icon -->
-			<script type="text/javascript">
-				$(document).ready(function() {
-					/*
-						var defaults = {
-						containerID: 'toTop', // fading element id
-						containerHoverID: 'toTopHover', // fading element hover id
-						scrollSpeed: 1200,
-						easingType: 'linear' 
-						};
-					*/
-										
-					$().UItoTop({ easingType: 'easeOutQuart' });
-										
-					});
-			</script>
-			<!-- start-smoth-scrolling -->
-			<script type="text/javascript" src="js/move-top.js"></script>
-			<script type="text/javascript" src="js/easing.js"></script>
-			<script type="text/javascript">
-				jQuery(document).ready(function($) {
-					$(".scroll").click(function(event){		
-						event.preventDefault();
-						$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-					});
-				});
-			</script>
-			<!-- start-smoth-scrolling -->
-		<!-- //here ends scrolling icon -->
+        <!-- Navigation-JavaScript -->
+        <script src="js/classie.js"></script>
+        <script src="js/main.js"></script>
+        <!-- //Navigation-JavaScript -->
+        <!-- here stars scrolling icon -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /*
+                 var defaults = {
+                 containerID: 'toTop', // fading element id
+                 containerHoverID: 'toTopHover', // fading element hover id
+                 scrollSpeed: 1200,
+                 easingType: 'linear' 
+                 };
+                 */
+
+                $().UItoTop({easingType: 'easeOutQuart'});
+
+            });
+        </script>
+        <!-- start-smoth-scrolling -->
+        <script type="text/javascript" src="js/move-top.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                });
+            });
+        </script>
+        <!-- start-smoth-scrolling -->
+        <!-- //here ends scrolling icon -->
     </body>
+
 </html>

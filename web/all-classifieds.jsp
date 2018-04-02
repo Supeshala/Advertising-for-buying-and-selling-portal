@@ -841,7 +841,7 @@
                             <ul>
                                 <li><a href="howitworks.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
                                 <li><a href="sitemap.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
-                                <li><a href="faq.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
+                                <li><a href="help.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
                                 <li><a href="feedback.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
                                 <li><a href="contact.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
                             </ul>
@@ -866,7 +866,7 @@
                                 <div class="clearfix"> </div>
                                 <ul class="location">
                                     <li><span class="glyphicon glyphicon-envelope"></span></li>
-                                    <li><a href="mailto:binukagamage@gmail.com">binukagamage@gmail.com</a></li>
+                                    <li><a href="mailto:igsbinukagamage@gmail.com">igsbinukagamage@gmail.com</a></li>
                                 </ul>						
                             </address>
                         </div>
