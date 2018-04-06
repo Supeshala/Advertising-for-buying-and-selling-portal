@@ -398,7 +398,7 @@
         <!-- breadcrumbs -->
         <div class="w3layouts-breadcrumbs text-center">
             <div class="container">
-                <span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Post your Ad</span></span>
+                <span class="agile-breadcrumbs"><a href="index.jsp"><i class="fa fa-home home_1"></i></a> / <span>Post your Ad</span></span>
             </div>
         </div>
         <!-- //breadcrumbs -->

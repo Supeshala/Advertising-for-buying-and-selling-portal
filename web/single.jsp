@@ -316,12 +316,15 @@
             </div>
         </header>
         <!-- //header -->
+        <%
+            if (request.getParameter("adId") != null) {
 
-        <%           
                 Session ses = DB.Connection.getSessionFactory().openSession();
-                Criteria cr = ses.createCriteria(Ad.class).add(Restrictions.eq("brand", "Yamaha"));
-                Ad ad = (Ad) cr.uniqueResult();
+                POJOS.Ad ad = (POJOS.Ad) ses.load(POJOS.Ad.class, Integer.parseInt(request.getParameter("adId")));
+
         %>
+
+
         <!-- breadcrumbs -->
 
         <div class="w3layouts-breadcrumbs text-center">
@@ -340,52 +343,28 @@
                 <div class="product-desc">
                     <div class="col-md-7 product-view">
                         <h2><%=ad.getTitle()%></h2>
-                        <p> <i class="glyphicon glyphicon-map-marker"></i><a href="#"><%=ad.getLocation()%></a>| Added at <%=ad.getDate().getTime()%> , Ad ID: <%=ad.getIdad()%></p>
+                        <p> <i class="glyphicon glyphicon-map-marker"></i><a href="#"><%=ad.getLocation()%></a>| Added at <%=ad.getDate()%> , Ad ID: <%=ad.getIdad()%></p>
                         <div class="flexslider">
                             <img src="<%=ad.getImage()%>" alt="">
                         </div>
-                        <!--					<div class="flexslider">
-                                                                        <ul class="slides">
-                                                                                <li data-thumb="images/ss1.jpg">
-                                                                                    <img src="images/ss1.jpg" alt=""/>
-                                                                                </li>
-                                                                                <li data-thumb="images/ss2.jpg">
-                                                                                    <img src="images/ss2.jpg" alt="" />
-                                                                                </li>
-                                                                                <li data-thumb="images/ss3.jpg">
-                                                                                    <img src="images/ss3.jpg" alt=""/>
-                                                                                </li>
-                                                                                <li data-thumb="images/ss4.jpg">
-                                                                                    <img src="images/ss4.jpg" alt=""/>
-                                                                                </li>
-                                                                        </ul>
-                                                                </div>-->
-
-                        <!--					  <script defer src="js/jquery.flexslider.js"></script>
-                        
-                                                                        <script>
-                                                                // Can also be used with $(document).ready()
-                                                                $(window).load(function() {
-                                                                  $('.flexslider').flexslider({
-                                                                        animation: "slide",
-                                                                        controlNav: "thumbnails"
-                                                                  });
-                                                                });
-                                                                </script>-->
 
                         <div class="product-details">
-                            <h4><span class="w3layouts-agileinfo"> brand </span> : <a href="#">Company name</a></h4>
-                            <h4><span class="w3layouts-agileinfo">Views </span> : <strong>150</strong></h4>
-                            <h4><span class="w3layouts-agileinfo">Fuel </span> : Petrol</h4>
-                            <h4><span class="w3layouts-agileinfo">Summary</span> :<p> description </p>
+                            <h4><span class="w3layouts-agileinfo"> Brand </span> : <%=ad.getBrand()%> </h4>
+                            <h4><span class="w3layouts-agileinfo">Price</span> : Rs.<%=ad.getPrice()%></h4>
+                            <h4><span class="w3layouts-agileinfo">Summary</span> :<p> <%=ad.getDescription()%> </p>
 
                         </div>
                     </div>
                     <div class="col-md-5 product-details-grid">
                         <div class="item-price">
+                            <div class="itemtype">
+                                <p class="p-price"></p>
+                                <h4><%=ad.getCategory()%></h4>
+                                <div class="clearfix"></div>
+                            </div>
                             <div class="product-price">
-                                <p class="p-price">Price</p>
-                                <h3 class="rate">Rs. price </h3>
+                                <p class="p-price">Location</p>
+                                <h3 class="rate"><%=ad.getLocation()%> </h3>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="condition">
@@ -393,37 +372,37 @@
                                 <h4>Good</h4>
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="itemtype">
-                                <p class="p-price">Item Type</p>
-                                <h4>category</h4>
-                                <div class="clearfix"></div>
-                            </div>
+
                         </div>
                         <div class="interested text-center">
                             <h4>Interested in this Ad?<small> Contact the Seller!</small></h4>
-                            <p><i class="glyphicon glyphicon-earphone"></i>mobile</p>
+                            <p><i class="glyphicon glyphicon-user"></i><%=ad.getUser().getName()%></p>
+                            <p><i class="glyphicon glyphicon-earphone"></i><%=ad.getUser().getMobile()%></p>
+                            <p><i class="glyphicon glyphicon-envelope"></i><%=ad.getUser().getEmail()%></p>
                         </div>
-                       
-                        <div class="tips">
-                            <h4>Safety Tips for Buyers</h4>
-                            <ol>
-                                <li><a href="#">Contrary to popular belief.</a></li>
-                                <li><a href="#">Contrary to popular belief.</a></li>
-                                <li><a href="#">Contrary to popular belief.</a></li>
-                                <li><a href="#">Contrary to popular belief.</a></li>
-                                <li><a href="#">Contrary to popular belief.</a></li>
-                                <li><a href="#">Contrary to popular belief.</a></li>
-                                <li><a href="#">Contrary to popular belief.</a></li>
-                                <li><a href="#">Contrary to popular belief.</a></li>
-                                <li><a href="#">Contrary to popular belief.</a></li>
-                            </ol>
-                        </div>
+
+                        <!--                        <div class="tips">
+                                                    <h4>Safety Tips for Buyers</h4>
+                                                    <ol>
+                                                        <li><a href="#">Contrary to popular belief.</a></li>
+                                                        <li><a href="#">Contrary to popular belief.</a></li>
+                                                        <li><a href="#">Contrary to popular belief.</a></li>
+                                                        <li><a href="#">Contrary to popular belief.</a></li>
+                                                        <li><a href="#">Contrary to popular belief.</a></li>
+                                                        <li><a href="#">Contrary to popular belief.</a></li>
+                                                        <li><a href="#">Contrary to popular belief.</a></li>
+                                                        <li><a href="#">Contrary to popular belief.</a></li>
+                                                        <li><a href="#">Contrary to popular belief.</a></li>
+                                                    </ol>
+                                                </div>-->
                     </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
         </div>
-
+        <%
+            }
+        %>  
         <!--//single-page-->
         <!--footer section start-->		
         <footer>
@@ -439,7 +418,7 @@
                             <ul>
                                 <li><a href="howitworks.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
                                 <li><a href="sitemap.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
-                                <li><a href="faq.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
+                                <li><a href="help.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
                                 <li><a href="feedback.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
                                 <li><a href="contact.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
                             </ul>
@@ -621,40 +600,7 @@
         </script>
         <!-- start-smoth-scrolling -->
         <!-- //here ends scrolling icon -->
-                <script>
-
-            function sendch() {
-
-                var xmlhttp;
-
-                xmlhttp = new XMLHttpRequest();
-
-                xmlhttp.onreadystatechange = function()
-
-                {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                    {
-
-                        //document.getElementById("load").innerHTML = xmlhttp.responseText;
-                        var want = xmlhttp.responseText;
-
-                        document.getElementById("ccc").innerHTML = want;
-                    } else {
-
-                        //document.getElementById("load").innerHTML = "<img src='1.gif'>"
-                    }
-                };
-
-                //var u = '';
-                // var p = document.getElementById("sn").value;
-                var suser = document.getElementById("chsearch").value;
-                //alert(suser)
-                xmlhttp.open("GET", "gtouser?suser=" + suser, true);
-                xmlhttp.send();
-            }
-
-
-        </script>
+        
     </body>
 </html>
 

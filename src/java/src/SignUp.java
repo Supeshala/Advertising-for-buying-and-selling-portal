@@ -51,8 +51,14 @@ public class SignUp extends HttpServlet {
             Session session = DB.Connection.getSessionFactory().openSession();
             Transaction tr = session.beginTransaction();
 
-//            
-            if (password == cpassword) {
+            Criteria cr = (Criteria) session.createCriteria(User.class).add(Restrictions.eq("email", email));
+            User us = (User) cr.uniqueResult();
+
+            if (us != null) {
+                response.sendRedirect("signup.jsp");
+
+            } else {
+
                 User user = new User();
                 user.setName(name);
                 user.setEmail(email);
@@ -73,8 +79,6 @@ public class SignUp extends HttpServlet {
                 DB.userDetails.userEmail = (String) s.getAttribute("User_Email");
 
                 response.sendRedirect("post-ad.jsp");
-            }else{
-            response.sendRedirect("signup.jsp");
             }
         } catch (Exception ex) {
             ex.printStackTrace();

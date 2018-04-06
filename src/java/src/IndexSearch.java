@@ -33,28 +33,43 @@ public class IndexSearch extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            if(request.getParameter("agileinfo_search").equals("Mobiles")){
-                response.sendRedirect("mobiles.jsp");
-            }else if (request.getParameter("agileinfo_search").equals("Electronics & Appliances")) {
-                response.sendRedirect("electronics-appliances.jsp");
-            }else if (request.getParameter("agileinfo_search").equals("Cars")) {
-                response.sendRedirect("cars.jsp");
-            }else if (request.getParameter("agileinfo_search").equals("Bikes")) {
-                response.sendRedirect("bikes.jsp");
-            }else if (request.getParameter("agileinfo_search").equals("Furnitures")) {
-                response.sendRedirect("furnitures.jsp");
-            }else if (request.getParameter("agileinfo_search").equals("Books, Sports & Hobbies")) {
-                response.sendRedirect("books-sports-hobbies.jsp");
-            }else if (request.getParameter("agileinfo_search").equals("Fashion")) {
-                response.sendRedirect("fashion.jsp");
-            }else if (request.getParameter("agileinfo_search").equals("Kids")) {
-                response.sendRedirect("kids.jsp");
-            }else if (request.getParameter("agileinfo_search").equals("Services")) {
-                response.sendRedirect("services.jsp");
-            }else if (request.getParameter("agileinfo_search").equals("Jobs")) {
-                response.sendRedirect("jobs.jsp");
-            }else if (request.getParameter("agileinfo_search").equals("Real Estates")) {
-                response.sendRedirect("real-estate.jsp");
+            switch (request.getParameter("agileinfo_search")) {
+                case "All Categories":
+                    response.sendRedirect("all-classifieds.jsp");
+                    break;
+                case "Mobiles":
+                    response.sendRedirect("mobiles.jsp");
+                    break;
+                case "Electronics & Appliances":
+                    response.sendRedirect("electronics-appliances.jsp");
+                    break;
+                case "Cars":
+                    response.sendRedirect("cars.jsp");
+                    break;
+                case "Bikes":
+                    response.sendRedirect("bikes.jsp");
+                    break;
+                case "Furnitures":
+                    response.sendRedirect("furnitures.jsp");
+                    break;
+                case "Books, Sports & Hobbies":
+                    response.sendRedirect("books-sports-hobbies.jsp");
+                    break;
+                case "Fashion":
+                    response.sendRedirect("fashion.jsp");
+                    break;
+                case "Kids":
+                    response.sendRedirect("kids.jsp");
+                    break;
+                case "Services":
+                    response.sendRedirect("services.jsp");
+                    break;
+                case "Jobs":
+                    response.sendRedirect("jobs.jsp");
+                    break;
+                case "Real Estates":
+                    response.sendRedirect("real-estate.jsp");
+                    break;
             }
         }
     }

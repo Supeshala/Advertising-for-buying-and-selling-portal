@@ -783,30 +783,30 @@
                                                 <%
                                                     for (Ad a : adList) {
                                                 %> 
-                                                <a href="single.jsp">
-                                                    <ul class="list">
+                                                <!--                                                <a href="single.jsp">-->
+                                                <ul class="list">
 
-                                                        <li>
-                                                            <img src="<%=a.getImage()%>" title="" alt="" />
-                                                            <section class="list-left">
-                                                                <h5 class="title"><%=a.getTitle()%></h5>
-                                                                <span class="adprice">Rs.<%=a.getPrice()%></span>
-                                                                <p class="catpath"><%=a.getCategory()%>  » <%=a.getBrand()%> </p>
-                                                            </section>
-                                                            <section class="list-group">
-                                                                <time class="timeago" datetime="<%=a.getDate()%>" > new Date() </time> 
-                                                                <br><br>
-                                                                <span class="cityname"><%=a.getLocation()%></span>
-                                                            </section> <br><br>
-
-                                                            <div class="clearfix"></div>
-                                                        </li> 
-
-                                                    </ul>
-                                                </a>
+                                                    <li>
+                                                        <img src="<%=a.getImage()%>" title="" alt="" />
+                                                        <section class="list-left">
+                                                            <h5 class="title"><%=a.getTitle()%></h5>
+                                                            <span class="adprice">Rs.<%=a.getPrice()%></span>
+                                                            <p class="catpath"><%=a.getCategory()%>  » <%=a.getBrand()%> </p>
+                                                        </section>
+                                                        <section class="list-group">
+                                                            <time class="timeago" datetime="<%=a.getDate()%>" > new Date() </time> 
+                                                            <br><br>
+                                                            <span class="cityname"><%=a.getLocation()%></span>
+                                                        </section> <br><br>
+                                                        &nbsp;&nbsp;&nbsp;<a href="single.jsp?adId=<%=a.getIdad()%> "><button class="btn-success">View more»</button></a>
+                                                        <div class="clearfix"></div>
+                                                    </li> 
+                                                </ul>
+                                               
+                                                <!--                                                </a>-->
                                                 <% }%>
                                             </div>
-                                        </div>
+                                        </div>  
                                     </div>
                                     <div id="page-selection"></div>
                                     <script>
