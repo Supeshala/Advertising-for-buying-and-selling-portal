@@ -4,8 +4,17 @@
     Author     : HP
 --%>
 
+<%@page import="org.hibernate.Session"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    response.setHeader("Cache-Control", "no-store");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Expires", "0");
+
+    Session ses = DB.Connection.getSessionFactory().openSession();
+
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -286,8 +295,8 @@
                         <form action="IndexSearch" method="post">
                             <input name="Search" type="text" placeholder="How can we help you today?" required="" />
                             <select id="agileinfo_search" name="agileinfo_search" required="">
-                                <option value="">All Categories</option>
-                                <option value="Mobiles">Mobiles</option>
+                                <option value="">Select Category</option>
+                                <option value="All Categories">All Categories</option>
                                 <option value="Electronics & Appliances">Electronics & Appliances</option>
                                 <option value="Cars">Cars</option>
                                 <option value="Bikes">Bikes</option>

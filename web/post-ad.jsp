@@ -146,7 +146,7 @@
                         <li class="dropdown head-dpdn">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> <%=us.getName()%>
 
-                                <span class="caret"></span></a>
+                            <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="profile.jsp">My Profile</a></li>
                                 <li><a href="Logout">Logout</a></li>
@@ -371,7 +371,8 @@
                         <form action="IndexSearch" method="post">
                             <input name="Search" type="text" placeholder="How can we help you today?" required="" />
                             <select id="agileinfo_search" name="agileinfo_search" required="">
-                                <option value="">All Categories</option>
+                                <option value="">Select Category</option>
+                                <option value="All Categories">All Categories</option>
                                 <option value="Mobiles">Mobiles</option>
                                 <option value="Electronics & Appliances">Electronics & Appliances</option>
                                 <option value="Cars">Cars</option>

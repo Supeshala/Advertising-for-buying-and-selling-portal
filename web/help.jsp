@@ -4,6 +4,8 @@
     Author     : HP
 --%>
 
+<%@page import="org.hibernate.criterion.Restrictions"%>
+<%@page import="POJOS.User"%>
 <%@page import="java.util.List"%>
 <%@page import="org.hibernate.criterion.Order"%>
 <%@page import="POJOS.Faq"%>
@@ -79,213 +81,31 @@
                 </div>
                 <div class="w3ls-header-right">
                     <ul>
-                        <li class="dropdown head-dpdn">
-                            <a href="signin.jsp" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Sign In</a>
-                        </li>
+                        
                         <li class="dropdown head-dpdn">
                             <a href="help.jsp"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
                         </li>
                         <li class="dropdown head-dpdn">
                             <a href="#"><span class="active uls-trigger"><i class="fa fa-language" aria-hidden="true"></i>languages</span></a>
                         </li>
-                        <li class="dropdown head-dpdn">
-                            <div class="header-right">			
-                                <!-- Large modal -->
-                                <div class="agile-its-selectregion">
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                        <i class="fa fa-globe" aria-hidden="true"></i>Select Town</button>
-                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-                                         aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                                        &times;</button>
-                                                    <h4 class="modal-title" id="myModalLabel">
-                                                        Please Choose Your Location</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form class="form-horizontal" action="#" method="get">
-                                                        <div class="form-group">
-                                                            <select id="basic2" class="show-tick form-control" multiple>
-                                                                <optgroup label="Popular Cities">
-                                                                    <option selected style="display:none;color:#eee;">Select Town</option>
-                                                                    <option>Ampara</option>
-                                                                    <option>Anuradhapura</option>
-                                                                    <option>Badulla</option>
-                                                                    <option>Batticalo</option>
-                                                                    <option>Colombo</option>
-                                                                    <option>Galle</option>
-                                                                    <option>Gampaha</option>
-                                                                    <option>Hambantota</option>
-                                                                    <option>Jaffna</option>
-                                                                    <option>Kalutara</option>
-                                                                    <option>Kandy</option>
-                                                                    <option>Kegalle</option>
-                                                                    <option>Kilinochchi</option>
-                                                                    <option>Kurunegala</option>
-                                                                    <option>Mannar</option>
-                                                                    <option>Matale</option>
-                                                                    <option>Matara</option>
-                                                                    <option>Monaragala</option>
-                                                                    <option>Mullativu</option>
-                                                                    <option>Nuwara Eliya</option>
-                                                                    <option>Polonnaruwa</option>
-                                                                    <option>Puttalam</option>
-                                                                    <option>Ratnapura</option>
-                                                                    <option>Trincomalee</option>
-                                                                    <option>Vavuniya</option>
-                                                                </optgroup>
-                                                                <optgroup label="Ampara">
-                                                                    <option>Akkarepattu</option>
-                                                                    <option>Ampara</option>
-                                                                    <option>Kalmunai</option>
-                                                                    <option>Sainthamaruthu</option>
-                                                                </optgroup>
-                                                                <optgroup label="Anuradhapura">
-                                                                    <option>Anuradhapura</option>
-                                                                    <option>Kekirawa</option>
-                                                                    <option>Tambuttegama</option>
-                                                                    <option>Medawachchiya</option>
-                                                                    <option>KetchikanEppawala</option>
-                                                                </optgroup>
-                                                                <optgroup label="Badulla">
-                                                                    <option>Badulla</option>
-                                                                    <option>Bandarawela</option>
-                                                                    <option>Welimada</option>
-                                                                    <option>Mahiyanganaya</option>
-                                                                    <option>Hali Ela</option>
-                                                                </optgroup>
-                                                                <optgroup label="Batticalo">
-                                                                    <option>Batticalo</option>
-                                                                </optgroup>
-                                                                <optgroup label="Colombo">
-                                                                    <option>Dehiwala</option>
-                                                                    <option>Nugegoda</option>
-                                                                    <option>Piliyandala</option>
-                                                                    <option>Maharagama</option>
-                                                                    <option>Kottawa</option>
-                                                                </optgroup>
-                                                                <optgroup label="Galle">
-                                                                    <option>Galle</option>
-                                                                    <option>Alpitiya</option>
-                                                                    <option>Ambalangoda</option>
-                                                                    <option>Baddegama</option>
-                                                                    <option>Hikkaduwa</option>
-                                                                </optgroup>
-                                                                <optgroup label="Gampaha">
-                                                                    <option>Gampaha</option>
-                                                                    <option>Kadawatha</option>
-                                                                    <option>Negombo</option>
-                                                                    <option>Ja Ela</option>
-                                                                    <option>Kelaniya</option>
-                                                                </optgroup>
-                                                                <optgroup label="Hambantota">
-                                                                    <option>Ambalanthota</option>
-                                                                    <option>Beliatta</option>
-                                                                    <option>Hambanthota</option>
-                                                                    <option>Tangalle</option>
-                                                                    <option>Tissamaharamaya</option>
-                                                                </optgroup>
-                                                                <optgroup label="Jaffna">
-                                                                    <option>Jaffna</option>
-                                                                    <option>Nallur</option>
-                                                                </optgroup>
-                                                                <optgroup label="Kalutara">
-                                                                    <option>Bandaragama</option>
-                                                                    <option>Horana</option>
-                                                                    <option>Kalutara</option>
-                                                                    <option>Mathugama</option>
-                                                                    <option>Panadura</option>
-                                                                </optgroup>
-                                                                <optgroup label="Kegalle">
-                                                                    <option>Kegalle</option>
-                                                                    <option>Mawanella</option>
-                                                                    <option>Rambukkana</option>
-                                                                    <option>Ruwanwella</option>
-                                                                    <option>Warakapola</option>
-                                                                </optgroup>
-                                                                <optgroup label="Kilinochchi">
-                                                                    <option>Kilinochchi</option>
-                                                                </optgroup>
-                                                                <optgroup label="Kurunegala">
-                                                                    <option>Kurunegala</option>
-                                                                    <option>Kuliyapitiya</option>
-                                                                    <option>Narammala</option>
-                                                                    <option>Pannala</option>
-                                                                    <option>Wariyapola</option>
-                                                                </optgroup>
-                                                                <optgroup label="Mannar">
-                                                                    <option>Mannar</option>														       
-                                                                </optgroup>
-                                                                <optgroup label="Matale">
-                                                                    <option>Dambulla</option>
-                                                                    <option>Galewela</option>
-                                                                    <option>Matale</option>
-                                                                    <option>Sigiriya</option>
-                                                                    <option>Ukuwela</option>       													
-                                                                </optgroup>
-                                                                <optgroup label="Matara">
-                                                                    <option>Akuressa</option>
-                                                                    <option>Dikwella</option>
-                                                                    <option>Hakmana</option>
-                                                                    <option>Matara</option>
-                                                                    <option>Weligama</option>            													
-                                                                </optgroup>
-                                                                <optgroup label="Moneragala">
-                                                                    <option>Bibile</option>
-                                                                    <option>Buttala</option>
-                                                                    <option>Kataragama</option>
-                                                                    <option>Moneragala</option>
-                                                                    <option>Wellawaya</option>        														
-                                                                </optgroup>
-                                                                <optgroup label="Mullativu">
-                                                                    <option>Mullativu</option>          														
-                                                                </optgroup>
-                                                                <optgroup label="Nuwara Eliya">
-                                                                    <option>Ginigathena</option>
-                                                                    <option>Hatton</option>
-                                                                    <option>Madulla</option>
-                                                                    <option>Nuwara Eliya</option>        														
-                                                                </optgroup>
-                                                                <optgroup label="Polonnaruwa">
-                                                                    <option>Hingurakgoda</option>
-                                                                    <option>Kaduruwela</option>
-                                                                    <option>Medirigiriya</option>
-                                                                    <option>Polonnaruwa</option>         														
-                                                                </optgroup>
-                                                                <optgroup label="Puttalam">
-                                                                    <option>Chilaw</option>
-                                                                    <option>Dankotuwa</option>
-                                                                    <option>Nattandiya</option>
-                                                                    <option>Puttalam</option>
-                                                                    <option>Wennappuwa</option>  
-                                                                </optgroup>
-                                                                <optgroup label="Ratnapura">
-                                                                    <option>Balangoda</option>
-                                                                    <option>Eheliyagoda</option>
-                                                                    <option>Embilipitiya</option>
-                                                                    <option>Pelmadulla</option>
-                                                                    <option>Ratnapura</option> 
-                                                                </optgroup>
-                                                                <optgroup label="Trincomalee">
-                                                                    <option>Kinniya</option>
-                                                                    <option>Trincomalee</option>      														
-                                                                </optgroup>
-                                                                <optgroup label="Vavuniya">
-                                                                    <option>Vavuniya</option>        														
-                                                                </optgroup>
+                        <%                            if (request.getSession().getAttribute("User_Email") != null) {
+                        %>
 
-                                                            </select>
-                                                        </div>
-                                                    </form>    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <% Criteria cr = ses.createCriteria(User.class).add(Restrictions.eq("email", request.getSession().getAttribute("User_Email").toString()));
+                        User us = (User) cr.uniqueResult();%>
+                        <li class="dropdown head-dpdn">
+                            <a href="profile.jsp" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> <%=us.getName()%></a>
                         </li>
+                        <li class="dropdown head-dpdn">
+                            <a href="Logout" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>LogOut</a>
+                        </li>
+                        <% } else { %>
+                        <li class="dropdown head-dpdn">
+                            <a href="signin.jsp" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> SignIn</a>
+                        </li>
+                        <% }
+
+                        %>
                     </ul>
                 </div>
 
@@ -300,7 +120,8 @@
                         <form action="IndexSearch" method="post">
                             <input name="Search" type="text" placeholder="How can we help you today?" required="" />
                             <select id="agileinfo_search" name="agileinfo_search" required="">
-                                <option value="">All Categories</option>
+                                <option value="">Select Category</option>
+                                <option value="All Categories">All Categories</option>
                                 <option value="Mobiles">Mobiles</option>
                                 <option value="Electronics & Appliances">Electronics & Appliances</option>
                                 <option value="Cars">Cars</option>
