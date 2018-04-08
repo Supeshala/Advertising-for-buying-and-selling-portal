@@ -94,11 +94,11 @@
                             <a href="profile.jsp" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> <%=us.getName()%></a>
                         </li>
                         <li class="dropdown head-dpdn">
-                            <a href="Logout" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>LogOut</a>
+                            <a href="Logout" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>Log Out</a>
                         </li>
                         <% } else { %>
                         <li class="dropdown head-dpdn">
-                            <a href="signin.jsp" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> SignIn</a>
+                            <a href="signin.jsp" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Sign In</a>
                         </li>
                         <% }
 
@@ -135,7 +135,17 @@
                                 <i class="fa fa-search" aria-hidden="true"> </i>
                             </button>
                         </form>
+                        <%   if (request.getSession().getAttribute("User_Email") != null) {
+                        %>
+
+                        <% Criteria cr = ses.createCriteria(User.class).add(Restrictions.eq("email", request.getSession().getAttribute("User_Email").toString()));
+                               User us = (User) cr.uniqueResult();%>
+                        <a class="post-w3layouts-ad" href="post-ad.jsp">Post Your Ad</a>
+                        <% } else { %>
                         <a class="post-w3layouts-ad" href="signin.jsp">Post Your Ad</a>
+                        <% }
+
+                        %>
                     </div>	
                     <div class="clearfix"></div>
                 </div>

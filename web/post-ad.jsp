@@ -149,7 +149,7 @@
                             <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="profile.jsp">My Profile</a></li>
-                                <li><a href="Logout">Logout</a></li>
+                                <li><a href="Logout">Log Out</a></li>
 
                             </ul>
                         </li>
@@ -389,7 +389,17 @@
                                 <i class="fa fa-search" aria-hidden="true"> </i>
                             </button>
                         </form>
+                        <%                            if (request.getSession().getAttribute("User_Email") != null) {
+                        %>
+
+                        <% Criteria cr1 = ses.createCriteria(User.class).add(Restrictions.eq("email", request.getSession().getAttribute("User_Email").toString()));
+                               User us1 = (User) cr1.uniqueResult();%>
+                        <a class="post-w3layouts-ad" href="post-ad.jsp">Post Your Ad</a>
+                        <% } else { %>
                         <a class="post-w3layouts-ad" href="signin.jsp">Post Your Ad</a>
+                        <% }
+
+                        %>
                     </div>	
                     <div class="clearfix"></div>
                 </div>
@@ -639,8 +649,8 @@
                             <label>Your Email Address<span>*</span></label>
                             <input type="text"  name="email" value="<%=us.getEmail()%>" placeholder="" >
                             <div class="clearfix"></div>
-<!--                            <p class="post-terms">By clicking <strong>post Button</strong> you accept our <a href="terms.html" target="_blank">Terms of Use </a> and <a href="privacy.html" target="_blank">Privacy Policy</a></p>-->
-                            <input type="submit" value="Continue">					
+                            <p class="post-terms">By clicking <strong>post Button</strong> you accept our <a href="terms.jsp" target="_blank">Terms of Use </a> and <a href="privacy.jsp" target="_blank">Privacy Policy</a></p>
+                            <input type="submit" value="Post">					
                             <div class="clearfix"></div>
 
                         </div>
@@ -656,13 +666,12 @@
                     <div class="wthree-foo-grids">
                         <div class="col-md-3 wthree-footer-grid">
                             <h4 class="footer-head">Who We Are</h4>
-                            <p></p>
+                            <p>We are Sri Lanka's online marketplace where you can advertise your products and services. </p>
                         </div>
                         <div class="col-md-3 wthree-footer-grid">
                             <h4 class="footer-head">Help</h4>
                             <ul>
-                                <li><a href="howitworks.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>						
-                                <li><a href="sitemap.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
+                                <li><a href="howitworks.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>How it Works</a></li>
                                 <li><a href="help.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
                                 <li><a href="feedback.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
                                 <li><a href="contact.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
@@ -671,8 +680,10 @@
                         <div class="col-md-3 wthree-footer-grid">
                             <h4 class="footer-head">Information</h4>
                             <ul>
+                                <li><a href="sitemap.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sitemap</a></li>
                                 <li><a href="regions.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Locations Map</a></li>	
-                                <li><a href="terms.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Terms of Use</a></li>	
+                                <li><a href="terms.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Terms of Use</a></li>
+                                <li><a href="privacy.jsp"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Privacy Policy</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3 wthree-footer-grid">
@@ -705,13 +716,12 @@
                         <ul>
                             <li><a class="facebook" href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a></li>
                             <li><a class="twitter" href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twitter</span></a></li>
-                            <li><a class="flickr" href="#"><i class="fa fa-flickr" aria-hidden="true"></i><span>Flickr</span></a></li>
+                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a></li>
                             <li><a class="googleplus" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i><span>Google+</span></a></li>
-                            <li><a class="dribbble" href="#"><i class="fa fa-dribbble" aria-hidden="true"></i><span>Dribbble</span></a></li>
                         </ul>
                     </div>
                     <div class="copyrights">
-                        <p> © 2017 Sell it. All Rights Reserved </p>
+                        <p> © Sell it. All Rights Reserved </p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
