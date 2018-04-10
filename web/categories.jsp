@@ -4,6 +4,9 @@
     Author     : HP
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="org.hibernate.criterion.Projections"%>
+<%@page import="POJOS.Ad"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.criterion.Restrictions"%>
 <%@page import="org.hibernate.Criteria"%>
@@ -20,7 +23,7 @@
 %>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Sell it </title>
+    <title>Categories :: Sellit  </title>
     <link rel="stylesheet" href="css/bootstrap.min.css"><!-- bootstrap-CSS -->
     <link rel="stylesheet" href="css/bootstrap-select.css"><!-- bootstrap-select-CSS -->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" /><!-- style.css -->
@@ -242,7 +245,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Mobiles</h4>
-                                    <span>5,12,850 Ads</span>
+                                    <% Criteria cr1 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Mobiles"));
+                                    cr1.setProjection(Projections.rowCount());
+                                    List rowCount = cr1.list();
+                                    %>
+                                    <span><%=rowCount.get(0)%> Ads</span>
                                     <a href="mobiles.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -262,7 +269,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Electronics & Appliances</h4>
-                                    <span>2,01,850 Ads</span>
+                                    <% Criteria cr2 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Electronics and Appliances"));
+                                    cr2.setProjection(Projections.rowCount());
+                                    List rowCount1 = cr2.list();
+                                    %>
+                                    <span><%=rowCount1.get(0)%> Ads</span>
                                     <a href="electronics-appliances.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -285,7 +296,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Cars</h4>
-                                    <span>1,98,080 Ads</span>
+                                    <% Criteria cr3 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Cars"));
+                                    cr3.setProjection(Projections.rowCount());
+                                    List rowCount2 = cr3.list();
+                                    %>
+                                    <span><%=rowCount2.get(0)%> Ads</span>
                                     <a href="cars.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -305,7 +320,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Bikes</h4>
-                                    <span>6,17,568 Ads</span>
+                                    <% Criteria cr4 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Bikes"));
+                                    cr4.setProjection(Projections.rowCount());
+                                    List rowCount3 = cr4.list();
+                                    %>
+                                    <span><%=rowCount3.get(0)%> Ads</span>
                                     <a href="bikes.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -326,7 +345,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Furniture</h4>
-                                    <span>1,05,168 Ads</span>
+                                    <% Criteria cr5 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Furniture"));
+                                    cr5.setProjection(Projections.rowCount());
+                                    List rowCount4 = cr5.list();
+                                    %>
+                                    <span><%=rowCount4.get(0)%> Ads</span>
                                     <a href="furnitures.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -347,7 +370,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Pets</h4>
-                                    <span>1,77,816 Ads</span>
+                                    <% Criteria cr6 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Pets"));
+                                    cr6.setProjection(Projections.rowCount());
+                                    List rowCount5 = cr6.list();
+                                    %>
+                                    <span><%=rowCount5.get(0)%> Ads</span>
                                     <a href="pets.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -368,7 +395,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Books, Sports & Hobbies</h4>
-                                    <span>9,58,458 Ads</span>
+                                    <% Criteria cr7 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Books, Sports and hobbies"));
+                                    cr7.setProjection(Projections.rowCount());
+                                    List rowCount6 = cr7.list();
+                                    %>
+                                    <span><%=rowCount6.get(0)%> Ads</span>
                                     <a href="books-sports-hobbies.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -390,7 +421,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Fashion</h4>
-                                    <span>3,52,345 Ads</span>
+                                    <% Criteria cr8 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Fashion"));
+                                    cr8.setProjection(Projections.rowCount());
+                                    List rowCount7 = cr8.list();
+                                    %>
+                                    <span><%=rowCount7.get(0)%> Ads</span>
                                     <a href="fashion.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -410,7 +445,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Kids</h4>
-                                    <span>8,45,298 Ads</span>
+                                    <% Criteria cr9 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Kids"));
+                                    cr9.setProjection(Projections.rowCount());
+                                    List rowCount8 = cr9.list();
+                                    %>
+                                    <span><%=rowCount8.get(0)%> Ads</span>
                                     <a href="kids.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -430,7 +469,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Services</h4>
-                                    <span>7,58,867 Ads</span>
+                                    <% Criteria cr10 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Services"));
+                                    cr10.setProjection(Projections.rowCount());
+                                    List rowCount9 = cr10.list();
+                                    %>
+                                    <span><%=rowCount9.get(0)%> Ads</span>
                                     <a href="services.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -456,7 +499,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Jobs</h4>
-                                    <span>5,74,547 Ads</span>
+                                    <% Criteria cr11 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Jobs"));
+                                    cr11.setProjection(Projections.rowCount());
+                                    List rowCount10 = cr11.list();
+                                    %>
+                                    <span><%=rowCount10.get(0)%> Ads</span>
                                     <a href="jobs.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
@@ -487,7 +534,11 @@
                                 </div>
                                 <div class="category-info">
                                     <h4>Real Estate</h4>
-                                    <span>98,156 Ads</span>
+                                    <% Criteria cr12 = ses.createCriteria(Ad.class).add(Restrictions.like("category", "Real, Estate"));
+                                    cr12.setProjection(Projections.rowCount());
+                                    List rowCount11 = cr12.list();
+                                    %>
+                                    <span><%=rowCount11.get(0)%> Ads</span>
                                     <a href="real-estate.jsp">View Ads</a>
                                 </div>
                                 <div class="clearfix"></div>
