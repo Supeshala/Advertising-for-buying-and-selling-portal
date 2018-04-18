@@ -4,19 +4,19 @@ This project facilitates the user to advertise his/her products or services. The
 
 ### Getting Started
 #### Prerequisites
--GlassFish Server 4.1
--MySQL server
+- GlassFish Server 4.1
+- MySQL server
 #### Installing
 You simply need to download this project and export to any IDE such as Netbeans, Eclipse or InteliJEDIA. 
 
 ### Built With
--JSP and Servlet
--Java 
--Hibernate Framework
--JQuery
--HTML5, CSS3 , JavaScript
--Bootstrap3
--MySQL database
+- JSP and Servlet
+- Java 
+- Hibernate Framework
+- JQuery
+- HTML5, CSS3 , JavaScript
+- Bootstrap3
+- MySQL database
 
 ### Versioning
 We use Github for versioning. 
