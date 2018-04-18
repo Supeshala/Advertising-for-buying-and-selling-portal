@@ -1,5 +1,5 @@
 # Sellit
-![alt text](screenshots/index.png "Index")
+![alt text](screenshots/index.PNG "Index")
 This project facilitates the user to advertise his/her products or services. The sellers advertise and sell their products while the buyers search their desired category easily and buy the products. As well, the advertisers can logged into the system and view their profile, view their advertisements and to change settings. In order to post your advertisement, the user have to essentially logged into the system. 
 
 ### Getting Started
