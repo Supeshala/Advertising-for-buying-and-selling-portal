@@ -29,7 +29,6 @@ import org.hibernate.criterion.Restrictions;
 @WebServlet(name = "SignIn", urlPatterns = {"/SignIn"})
 public class SignIn extends HttpServlet {
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -58,10 +57,12 @@ public class SignIn extends HttpServlet {
                     HttpSession ht = request.getSession();
                     ht.setAttribute("User_Email", email);
                     DB.userDetails.userEmail = (String) ht.getAttribute("User_Email");
-                    response.sendRedirect("post-ad.jsp");
-                   
+                    response.sendRedirect("profile.jsp");
+
                 } else {
-                    response.sendRedirect("index.jsp");
+                    String message = "Your password is wrong..!!!";
+                    request.getSession().setAttribute("message", message);
+                    response.sendRedirect("signin.jsp");
                 }
             }
 

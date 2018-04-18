@@ -78,7 +78,7 @@ public class SignUp extends HttpServlet {
                 s.setAttribute("User_Email", email);
                 DB.userDetails.userEmail = (String) s.getAttribute("User_Email");
 
-                response.sendRedirect("post-ad.jsp");
+                response.sendRedirect("profile.jsp");
             }
         } catch (Exception ex) {
             ex.printStackTrace();

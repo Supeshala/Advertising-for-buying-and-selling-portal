@@ -198,9 +198,10 @@
             </div>
         </div>
         <!-- //breadcrumbs -->
-
+        
         <!-- sign in form -->
         <section>
+            
             <div id="agileits-sign-in-page" class="sign-in-wrapper">
                 <div class="agileinfo_signin">
                     <h3>Sign In</h3>

@@ -605,7 +605,7 @@
                                                                 <br><br>
                                                                 <span class="cityname"><%=a.getLocation()%></span>
                                                             </section><br><br>
-                                                            &nbsp;&nbsp;&nbsp;<a href="single.jsp?adId=<%=a.getIdad()%> "><button class="btn-success">View more»</button></a>
+                                                            &nbsp;&nbsp;&nbsp;<a href="single.jsp?adId=<%=a.getIdad()%> "><button class="btn btn-success">View more»</button></a>
                                                             <div class="clearfix"></div>
                                                         </li> 
                                                     

@@ -217,11 +217,13 @@
                         <input type="submit" value="Sign Up" onclick="matchpass()">
                         <script type="text/javascript">
                                     function matchpass() {
+                                        event.preventDefault();
+                                        var form = event.target.form;
                                         var firstpassword = document.signup.password.value;
                                         var secondpassword = document.signup.cpassword.value;
 
                                         if (firstpassword == secondpassword) {
-                                            return true;
+                                            form.submit();
                                         } else {
                                             swal({
                                                 title:'Oops...',

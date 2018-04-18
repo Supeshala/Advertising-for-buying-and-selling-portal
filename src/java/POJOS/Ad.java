@@ -1,5 +1,5 @@
 package POJOS;
-// Generated Apr 2, 2018 10:11:49 PM by Hibernate Tools 4.3.1
+// Generated Apr 11, 2018 10:47:42 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,6 +20,7 @@ public class Ad  implements java.io.Serializable {
      private Date date;
      private String brand;
      private String image;
+     private String userEmail;
 
     public Ad() {
     }
@@ -28,7 +29,7 @@ public class Ad  implements java.io.Serializable {
     public Ad(User user) {
         this.user = user;
     }
-    public Ad(User user, String category, String title, String description, Double price, String location, Date date, String brand, String image) {
+    public Ad(User user, String category, String title, String description, Double price, String location, Date date, String brand, String image, String userEmail) {
        this.user = user;
        this.category = category;
        this.title = title;
@@ -38,6 +39,7 @@ public class Ad  implements java.io.Serializable {
        this.date = date;
        this.brand = brand;
        this.image = image;
+       this.userEmail = userEmail;
     }
    
     public Integer getIdad() {
@@ -109,6 +111,13 @@ public class Ad  implements java.io.Serializable {
     
     public void setImage(String image) {
         this.image = image;
+    }
+    public String getUserEmail() {
+        return this.userEmail;
+    }
+    
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
 

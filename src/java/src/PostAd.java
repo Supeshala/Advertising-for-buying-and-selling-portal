@@ -99,12 +99,13 @@ public class PostAd extends HttpServlet {
                 ad.setBrand(brand);
                 ad.setImage(path);
                 ad.setUser(user);
+                ad.setUserEmail(request.getSession().getAttribute("User_Email").toString());
                 
                 ses.save(ad);
                 tr.commit();
                 ses.close();
                 
-                response.sendRedirect("all-classifieds.jsp");
+                response.sendRedirect("profile.jsp#parentVerticalTab2");
             }
             
         } catch (Exception e) {

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Apr 2, 2018 10:11:54 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Apr 11, 2018 10:47:46 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="POJOS.Ad" table="ad" catalog="sellit" optimistic-lock="version">
         <id name="idad" type="java.lang.Integer">
@@ -34,6 +34,9 @@
         </property>
         <property name="image" type="string">
             <column name="image" length="16777215" />
+        </property>
+        <property name="userEmail" type="string">
+            <column name="userEmail" length="45" />
         </property>
     </class>
 </hibernate-mapping>

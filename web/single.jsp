@@ -246,7 +246,7 @@
                     <div class="wthree-foo-grids">
                         <div class="col-md-3 wthree-footer-grid">
                             <h4 class="footer-head">Who We Are</h4>
-                            <p></p>
+                            <p>We are Sri Lanka's online marketplace where you can advertise your products and services.</p>
                         </div>
                         <div class="col-md-3 wthree-footer-grid">
                             <h4 class="footer-head">Help</h4>

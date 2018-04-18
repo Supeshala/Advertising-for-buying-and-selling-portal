@@ -1,9 +1,10 @@
 <%-- 
-    Document   : regions
-    Created on : Apr 9, 2018, 1:35:12 PM
+    Document   : editAd
+    Created on : Apr 11, 2018, 7:21:41 PM
     Author     : HP
 --%>
 
+<%@page import="POJOS.Ad"%>
 <%@page import="org.hibernate.Session"%>
 <%@page import="org.hibernate.criterion.Restrictions"%>
 <%@page import="org.hibernate.Criteria"%>
@@ -20,7 +21,7 @@
 %>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Regions :: Sellit  </title>
+    <title>Edit Ad :: Sellit  </title>
     <link rel="stylesheet" href="css/bootstrap.min.css"><!-- bootstrap-CSS -->
     <link rel="stylesheet" href="css/bootstrap-select.css"><!-- bootstrap-select-CSS -->
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" /><!-- style.css -->
@@ -128,7 +129,8 @@
             </div>
             <div class="w3ls-header-right">
                 <ul>
-
+                    <% Criteria cr = ses.createCriteria(User.class).add(Restrictions.eq("email", request.getSession().getAttribute("User_Email").toString()));
+                        User us = (User) cr.uniqueResult();%>
                     <li class="dropdown head-dpdn">
                         <a href="help.jsp"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
                     </li>
@@ -138,8 +140,7 @@
                     <%                            if (request.getSession().getAttribute("User_Email") != null) {
                     %>
 
-                    <% Criteria cr = ses.createCriteria(User.class).add(Restrictions.eq("email", request.getSession().getAttribute("User_Email").toString()));
-                            User us = (User) cr.uniqueResult();%>
+
                     <li class="dropdown head-dpdn">
                         <a href="profile.jsp" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> <%=us.getName()%></a>
                     </li>
@@ -187,9 +188,6 @@
                     </form>
                     <%     if (request.getSession().getAttribute("User_Email") != null) {
                     %>
-
-                    <% Criteria cr = ses.createCriteria(User.class).add(Restrictions.eq("email", request.getSession().getAttribute("User_Email").toString()));
-                            User us = (User) cr.uniqueResult();%>
                     <a class="post-w3layouts-ad" href="post-ad.jsp">Post Your Ad</a>
                     <% } else { %>
                     <a class="post-w3layouts-ad" href="signin.jsp">Post Your Ad</a>
@@ -205,410 +203,249 @@
     <!-- breadcrumbs -->
     <div class="w3layouts-breadcrumbs text-center">
         <div class="container">
-            <span class="agile-breadcrumbs"><a href="index.jsp"><i class="fa fa-home home_1"></i></a> / <span> Regions</span></span>
+            <span class="agile-breadcrumbs"><a href="index.jsp"><i class="fa fa-home home_1"></i></a> / <a href="profile.jsp"><i class="fa fa-user user"></i></a> /<span> Edit your Ad</span></span>
         </div>
     </div>
     <!-- //breadcrumbs -->
-    
-    <!-- Regions -->
-	<div class="regions main-grid-border">
-		<div class="container">
-			<h2 class="w3-head">Location List</h2>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Ampara</h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp"> Akkarepattu </a></li>
-						<li><a href="all-classifieds.jsp"> Ampara </a></li>
-						<li><a href="all-classifieds.jsp"> Kalmunai </a></li>
-						<li><a href="all-classifieds.jsp"> Sainthamaruthu </a></li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Anuradhapura </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Anuradhapura</a></li>
-						<li><a href="all-classifieds.jsp">Kekirawa</a></li>
-						<li><a href="all-classifieds.jsp">Tambuttegama</a></li>
-						<li><a href="all-classifieds.jsp">Medawachchiya</a></li>
-						<li><a href="all-classifieds.jsp">KetchikanEppawala</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Badulla </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Badulla </a></li>
-						<li><a href="all-classifieds.jsp">Bandarawela   </a></li>
-						<li><a href="all-classifieds.jsp">Welimada   </a></li>
-						<li><a href="all-classifieds.jsp">Mahiyanganaya  </a></li>
-						<li><a href="all-classifieds.jsp">Hali Ela </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Batticalo </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Batticalo  </a></li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Colombo </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Dehiwala  </a></li>
-						<li><a href="all-classifieds.jsp">Nugegoda    </a></li>
-						<li><a href="all-classifieds.jsp">Piliyandala</a></li>
-						<li><a href="all-classifieds.jsp">Maharagama</a></li>
-						<li><a href="all-classifieds.jsp">Kottawa</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Galle </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Galle   </a></li>
-						<li><a href="all-classifieds.jsp">Alpitiya   </a></li>
-						<li><a href="all-classifieds.jsp">Ambalangoda   </a></li>
-						<li><a href="all-classifieds.jsp">Baddegama  </a></li>
-						<li><a href="all-classifieds.jsp">Hikkaduwa  </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Gampaha </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Gampaha </a></li>
-						<li><a href="all-classifieds.jsp">Kadawatha  </a></li>
-						<li><a href="all-classifieds.jsp">Negombo  </a></li>
-						<li><a href="all-classifieds.jsp">Ja Ela </a></li>
-						<li><a href="all-classifieds.jsp">Kelaniya   </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Hambantota </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Ambalanthota</a></li>
-						<li><a href="all-classifieds.jsp">Beliatta</a></li>
-						<li><a href="all-classifieds.jsp">Hambantota </a></li>
-						<li><a href="all-classifieds.jsp">Tangalle</a></li>
-						<li><a href="all-classifieds.jsp">Tissamaharamaya</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Jaffna </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Jaffna  </a></li>
-						<li><a href="all-classifieds.jsp">Nallur  </a></li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Kalutara </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Bandaragama </a></li>
-						<li><a href="all-classifieds.jsp">Horana </a></li>
-						<li><a href="all-classifieds.jsp">Kalutara</a></li>
-						<li><a href="all-classifieds.jsp">Mathugama  </a></li>
-						<li><a href="all-classifieds.jsp">Panadura   </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Kegalle </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Kegalle  </a></li>
-						<li><a href="all-classifieds.jsp">Mawanella </a></li>
-						<li><a href="all-classifieds.jsp">Rambukkana </a></li>
-						<li><a href="all-classifieds.jsp">Ruwanwella   </a></li>
-						<li><a href="all-classifieds.jsp">Warakapola </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Kilinochchi  </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Kilinochchi</a></li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Kurunegala </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Kurunegala  </a></li>
-						<li><a href="all-classifieds.jsp">Kuliyapitiya  </a></li>
-						<li><a href="all-classifieds.jsp">Narammala  </a></li>
-						<li><a href="all-classifieds.jsp">Pannala </a></li>
-						<li><a href="all-classifieds.jsp">Wariyapola   </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Mannar </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp"> Mannar </a></li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Matale  </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Dambulla </a></li>
-						<li><a href="all-classifieds.jsp">Galewela </a></li>
-						<li><a href="all-classifieds.jsp">Matale </a></li>
-						<li><a href="all-classifieds.jsp">Sigiriya  </a></li>
-						<li><a href="all-classifieds.jsp">Ukuwela </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Matara </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Akuressa   </a></li>
-						<li><a href="all-classifieds.jsp">Dikwella  </a></li>
-						<li><a href="all-classifieds.jsp">Hakmana  </a></li>
-						<li><a href="all-classifieds.jsp">Matara  </a></li>
-						<li><a href="all-classifieds.jsp">Weligama  </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Moneragala </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Bibile </a></li>
-						<li><a href="all-classifieds.jsp">Buttala  </a></li>
-						<li><a href="all-classifieds.jsp">Kataragama </a></li>
-						<li><a href="all-classifieds.jsp">Moneragala </a></li>
-						<li><a href="all-classifieds.jsp">Wellawaya   </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Mullativu </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Mullativu </a></li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Nuwara Eliya </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Ginigathena</a></li>
-						<li><a href="all-classifieds.jsp">Hatton </a></li>
-						<li><a href="all-classifieds.jsp">Madulla </a></li>
-						<li><a href="all-classifieds.jsp">Nuwara Eliya</a></li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Polonnaruwa </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Baltimore </a></li>
-						<li><a href="all-classifieds.jsp">Frederick    </a></li>
-						<li><a href="all-classifieds.jsp">Rockville    </a></li>
-						<li><a href="all-classifieds.jsp">Polonnaruwa    </a></li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Puttalam </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Chilaw   </a></li>
-						<li><a href="all-classifieds.jsp">Dankotuwa    </a></li>
-						<li><a href="all-classifieds.jsp">Nattandiya   </a></li>
-						<li><a href="all-classifieds.jsp">Puttalam    </a></li>
-						<li><a href="all-classifieds.jsp">Wennappuwa    </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Ratnapura </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Balangoda </a></li>
-						<li><a href="all-classifieds.jsp">Eheliyagoda </a></li>
-						<li><a href="all-classifieds.jsp">Embilipitiya  </a></li>
-						<li><a href="all-classifieds.jsp">Pelmadulla</a></li>
-						<li><a href="all-classifieds.jsp">Ratnapura  </a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Trincomalee </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Kinniya  </a></li>
-						<li><a href="all-classifieds.jsp">Trincomalee   </a></li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<div class="region-block">
-			<div class="container">
-				<div class="state col-md-3">
-					<h3>Vavuniya </h3>
-				</div>
-				<div class="sun-regions col-md-9">
-					<ul>
-						<li><a href="all-classifieds.jsp">Vavuniya </a></li>
-						
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
-	<!-- //Regions -->
-    
-    <!--footer section start-->		
-    <footer>
+    <%        if (request.getParameter("adId") != null) {
+
+            POJOS.Ad a = (POJOS.Ad) ses.load(POJOS.Ad.class, Integer.parseInt(request.getParameter("adId")));
+
+    %>
+    <div class="container">
+        <h2 class="w3-head">Post an Ad</h2>
+        <div class="post-ad-form">
+            <form action="AdDetails_Update" method="post">
+
+                <input type="hidden" name="adId" value="<%=a.getIdad()%>">
+                <div class="clearfix"></div>
+                <label>Select Category</label>
+                <select name="category">
+                    <option selected=""><%=a.getCategory()%></option>
+                    <option>Mobiles</option>
+                    <option>Electronics and Appliances</option>
+                    <option>Cars</option>
+                    <option>Bikes</option>
+                    <option>Furniture</option>
+                    <option>Pets</option>
+                    <option>Books, Sports and hobbies</option>
+                    <option>Fashion</option>
+                    <option>Kids</option> 
+                    <option>Services</option>
+                    <option>Real, Estate</option>
+                </select>
+                <div class="clearfix"></div>
+                <label>Ad Title </label>
+                <input type="text" name="title" value="<%=a.getTitle()%>">
+                <div class="clearfix"></div>
+                <label>Ad Description </label>
+                <textarea  name="description"><%=a.getDescription()%></textarea>
+                <div class="clearfix"></div>
+
+                <div class="sell-details">
+
+                    <label>Price </label>
+                    <input type="text"  name="price" value="<%=a.getPrice()%>">
+                    <div class="clearfix"></div>
+                    <label>Brand </label>
+                    <input type="text"  name="brand" value="<%=a.getBrand()%>" >
+                    <div class="clearfix"></div>
+                    <label>Select Location </label>
+                    <select name="location">
+                        <option selected=""><%=a.getLocation()%></option>
+
+                        <optgroup label="Ampara">
+                            <option>Akkarepattu</option>
+                            <option>Ampara</option>
+                            <option>Kalmunai</option>
+                            <option>Sainthamaruthu</option>
+                        </optgroup>
+                        <optgroup label="Anuradhapura">
+                            <option>Anuradhapura</option>
+                            <option>Kekirawa</option>
+                            <option>Tambuttegama</option>
+                            <option>Medawachchiya</option>
+                            <option>KetchikanEppawala</option>
+                        </optgroup>
+                        <optgroup label="Badulla">
+                            <option>Badulla</option>
+                            <option>Bandarawela</option>
+                            <option>Welimada</option>
+                            <option>Mahiyanganaya</option>
+                            <option>Hali Ela</option>
+                        </optgroup>
+                        <optgroup label="Batticalo">
+                            <option>Batticalo</option>
+                        </optgroup>
+                        <optgroup label="Colombo">
+                            <option>Dehiwala</option>
+                            <option>Nugegoda</option>
+                            <option>Piliyandala</option>
+                            <option>Maharagama</option>
+                            <option>Kottawa</option>
+                        </optgroup>
+                        <optgroup label="Galle">
+                            <option>Galle</option>
+                            <option>Alpitiya</option>
+                            <option>Ambalangoda</option>
+                            <option>Baddegama</option>
+                            <option>Hikkaduwa</option>
+                        </optgroup>
+                        <optgroup label="Gampaha">
+                            <option>Gampaha</option>
+                            <option>Kadawatha</option>
+                            <option>Negombo</option>
+                            <option>Ja Ela</option>
+                            <option>Kelaniya</option>
+                        </optgroup>
+                        <optgroup label="Hambantota">
+                            <option>Ambalanthota</option>
+                            <option>Beliatta</option>
+                            <option>Hambanthota</option>
+                            <option>Tangalle</option>
+                            <option>Tissamaharamaya</option>
+                        </optgroup>
+                        <optgroup label="Jaffna">
+                            <option>Jaffna</option>
+                            <option>Nallur</option>
+                        </optgroup>
+                        <optgroup label="Kalutara">
+                            <option>Bandaragama</option>
+                            <option>Horana</option>
+                            <option>Kalutara</option>
+                            <option>Mathugama</option>
+                            <option>Panadura</option>
+                        </optgroup>
+                        <optgroup label="Kegalle">
+                            <option>Kegalle</option>
+                            <option>Mawanella</option>
+                            <option>Rambukkana</option>
+                            <option>Ruwanwella</option>
+                            <option>Warakapola</option>
+                        </optgroup>
+                        <optgroup label="Kilinochchi">
+                            <option>Kilinochchi</option>
+                        </optgroup>
+                        <optgroup label="Kurunegala">
+                            <option>Kurunegala</option>
+                            <option>Kuliyapitiya</option>
+                            <option>Narammala</option>
+                            <option>Pannala</option>
+                            <option>Wariyapola</option>
+                        </optgroup>
+                        <optgroup label="Mannar">
+                            <option>Mannar</option>														       
+                        </optgroup>
+                        <optgroup label="Matale">
+                            <option>Dambulla</option>
+                            <option>Galewela</option>
+                            <option>Matale</option>
+                            <option>Sigiriya</option>
+                            <option>Ukuwela</option>       													
+                        </optgroup>
+                        <optgroup label="Matara">
+                            <option>Akuressa</option>
+                            <option>Dikwella</option>
+                            <option>Hakmana</option>
+                            <option>Matara</option>
+                            <option>Weligama</option>            													
+                        </optgroup>
+                        <optgroup label="Moneragala">
+                            <option>Bibile</option>
+                            <option>Buttala</option>
+                            <option>Kataragama</option>
+                            <option>Moneragala</option>
+                            <option>Wellawaya</option>        														
+                        </optgroup>
+                        <optgroup label="Mullativu">
+                            <option>Mullativu</option>          														
+                        </optgroup>
+                        <optgroup label="Nuwara Eliya">
+                            <option>Ginigathena</option>
+                            <option>Hatton</option>
+                            <option>Madulla</option>
+                            <option>Nuwara Eliya</option>        														
+                        </optgroup>
+                        <optgroup label="Polonnaruwa">
+                            <option>Hingurakgoda</option>
+                            <option>Kaduruwela</option>
+                            <option>Medirigiriya</option>
+                            <option>Polonnaruwa</option>         														
+                        </optgroup>
+                        <optgroup label="Puttalam">
+                            <option>Chilaw</option>
+                            <option>Dankotuwa</option>
+                            <option>Nattandiya</option>
+                            <option>Puttalam</option>
+                            <option>Wennappuwa</option>  
+                        </optgroup>
+                        <optgroup label="Ratnapura">
+                            <option>Balangoda</option>
+                            <option>Eheliyagoda</option>
+                            <option>Embilipitiya</option>
+                            <option>Pelmadulla</option>
+                            <option>Ratnapura</option> 
+                        </optgroup>
+                        <optgroup label="Trincomalee">
+                            <option>Kinniya</option>
+                            <option>Trincomalee</option>      														
+                        </optgroup>
+                        <optgroup label="Vavuniya">
+                            <option>Vavuniya</option>        														
+                        </optgroup>
+
+                    </select>
+
+                    <div class="clearfix"></div>
+
+                </div>
+<!--                <div class="upload-ad-photos">
+                    <label>Photos for your ad :</label>	
+                    <div class="photos-upload-view">
+
+                        <img id="output" style="width: 250px; height: 250px; " src="<%=a.getImage()%>"/>
+                        <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+
+                        <div>
+                            <input type="file" id="fileselect" onchange="loadFile(event)" name="image" multiple="multiple"/>
+
+                        </div>
+                        <div id="messages">
+                            <p>Status Messages</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <script src="js/filedrag.js"></script>
+                    <script>
+            var loadFile = function (event) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var output = document.getElementById('output');
+
+                    output.src = reader.result;
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            };
+
+            function deleteimage() {
+                $("#output").remove();
+            }
+
+
+                    </script>
+                </div>-->
+                <div class="modal-footer">
+                    <button  type="submit" class="btn btn-danger" name="personal_update" value="Update">Update</button>
+                    <a href="profile.jsp#parentVerticalTab2"><button type="button" class="btn btn-danger">Close</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
+        <%
+            }
+        %>  
+        <!--footer section start-->		
+        <footer>
             <div class="w3-agileits-footer-top">
                 <div class="container">
                     <div class="wthree-foo-grids">
@@ -675,39 +512,39 @@
                 </div>
             </div>
         </footer>
-    <!--footer section end-->
-    <!-- Navigation-JavaScript -->
-    <script src="js/classie.js"></script>
-    <script src="js/main.js"></script>
-    <!-- //Navigation-JavaScript -->
-    <!-- here stars scrolling icon -->
-    <script type="text/javascript">
-$(document).ready(function () {
-/*
-var defaults = {
-containerID: 'toTop', // fading element id
-containerHoverID: 'toTopHover', // fading element hover id
-scrollSpeed: 1200,
-easingType: 'linear' 
-};
-*/
+        <!--footer section end-->
+        <!-- Navigation-JavaScript -->
+        <script src="js/classie.js"></script>
+        <script src="js/main.js"></script>
+        <!-- //Navigation-JavaScript -->
+        <!-- here stars scrolling icon -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /*
+                 var defaults = {
+                 containerID: 'toTop', // fading element id
+                 containerHoverID: 'toTopHover', // fading element hover id
+                 scrollSpeed: 1200,
+                 easingType: 'linear' 
+                 };
+                 */
 
-$().UItoTop({easingType: 'easeOutQuart'});
+                $().UItoTop({easingType: 'easeOutQuart'});
 
-});
-    </script>
-    <!-- start-smoth-scrolling -->
-    <script type="text/javascript" src="js/move-top.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
-    <script type="text/javascript">
-jQuery(document).ready(function ($) {
-$(".scroll").click(function (event) {
-event.preventDefault();
-$('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
-});
-});
-    </script>
-    <!-- start-smoth-scrolling -->
-    <!-- //here ends scrolling icon -->
-    </body>
+            });
+        </script>
+        <!-- start-smoth-scrolling -->
+        <script type="text/javascript" src="js/move-top.js"></script>
+        <script type="text/javascript" src="js/easing.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                });
+            });
+        </script>
+        <!-- start-smoth-scrolling -->
+        <!-- //here ends scrolling icon -->
+</body>
 </html>
